@@ -70,8 +70,10 @@ def get_gemini_advice(user_input, user_features):
     return response.text  # Extract text response
 
 # Streamlit UI
-st.title("Women's Health Personalization Platform")
-st.write("Get personalized health recommendations based on your lifestyle and health parameters.")
+st.markdown(
+    "<h1 style='text-align: center; color: #E75480;'>HerWellAI - Revolutionizing Women's Health with AI.</h1>",
+    unsafe_allow_html=True
+)
 
 # User Input
 with st.form(key='user_input_form'):
@@ -97,6 +99,7 @@ if submit_button:
     
     st.subheader("Doctor's Advice")
     st.write(gemini_advice)
+    st.balloons()
 
 # Save processed data
 data.to_csv("women_health_segmented.csv", index=False)
